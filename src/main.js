@@ -1,54 +1,38 @@
-// // // @ts-check
-// // const somestring = "Hello";
-// // const result = Math.log(somestring);
-// // console.log(result);
+// @ts-check
+// 프레임워크 없이 간단한 토이프로젝르 만들기
 
-// // const http = require("http");
-// // const server = http.createServer((req, res) => {
-// //   res.statusCode = 200;
-// //   res.end("Hello");
-// // });
+/**
+ * 블로그 포스팅
+ * - 로컬 파일을 데이터베이스로 활용(JSON)
+ */
 
-// // const PORT = 4000;
-// // server.listen(PORT, () => {
-// //   console.log(`server is listening at port ${PORT}`);
-// // });
+const http = require('http');
 
-// // Prototype
-// function Person(name) {
-//   this.name = name;
-// }
-// Person.prototype.greet = function () {
-//   return `Hi ${this.name}`;
-// };
+/**
+ * Post
+ *
+ * GET /posts
+ * GET /posts/:id
+ * POST /posts
+ */
 
-// function Student(name) {
-//   //super(name);
-//   this.__proto__.constructor(name);
-// }
+const server = http.createServer((req, res) => {
+  if (req.url === '/posts' && req.method === 'GET') {
+    res.statusCode = 200;
+    res.end('List of post');
+  } else if (req.url && /^\/posts\/[a-zA-Z0-9-_]+$/.test(req.url)) {
+    res.statusCode = 200;
+    res.end('A content of posts');
+  } else if (req.url === '/posts' && req.method === 'POST') {
+    res.statusCode = 200;
+    res.end('Created a posts');
+  } else {
+    res.statusCode = 400;
+    res.end('Not found');
+  }
+});
 
-// Student.prototype.study = function () {
-//   return `${this.name} is studying`;
-// };
-
-// Object.setPrototypeOf(Student.prototype, Person.prototype);
-
-// const me = new Student("T");
-// // console.log(me.greet());
-// // console.log(me.study());
-// // console.log(me instanceof Student);
-// // console.log(me instanceof Person);
-
-// const shoudOverride = true;
-// const user = {
-//   ...{
-//     email: "kim@mail.com",
-//     password: "****",
-//   },
-//   ...{
-//     nickname: "t",
-//   },
-//   ...(shoudOverride ? { email: "lee@mail.com" } : null),
-// };
-
-// console.log(user);
+const PORT = 4000;
+server.listen(PORT, () => {
+  console.log(`The server is listening at port ${PORT}`);
+});

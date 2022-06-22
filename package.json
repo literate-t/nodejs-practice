@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "node src/main.js"
+    "debug": "node src/main.js",
+    "server": "nodemon src/main.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.16",
     "typescript": "^4.7.4"
   }
 }
