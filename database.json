@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "id": "first_post",
+      "title": "나의 첫 번째 포스트",
+      "content": "안녕하세요!!!"
+    },
+    {
+      "id": "second_post",
+      "title": "두 번째 포스트",
+      "content": "JSON으로 데이터 관리하기"
+    },
+    { "id": "foo_bar_bar", "title": "FOO BAR BAR", "content": "Hi iam T" }
+  ]
+}
